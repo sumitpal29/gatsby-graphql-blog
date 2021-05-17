@@ -19,7 +19,7 @@ function Header() {
         <nav className={navContainer}>
             <span className={navTitle}>Sumit Pal</span>
             <ul className={navLinks}>
-                {_map(navLinksArr, link => <li><Link to={link.path}>{link.title}</Link></li>)}
+                {_map(navLinksArr, (link, index) => <li key={`nav-link-${index}`}><Link to={link.path}>{link.title}</Link></li>)}
             </ul>
         </nav>
     )
