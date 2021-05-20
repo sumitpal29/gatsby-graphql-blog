@@ -29,6 +29,10 @@ exports.createSchemaCustomization = ({actions}) => {
             tags: [String!]!,
             content: Content
         }
+        input TitleFilter {
+            eq: String,
+            in: String
+        }
     `);
 };
 
@@ -38,7 +42,8 @@ exports.createResolvers = ({createResolvers}) => {
             allPosts: {
                 type: ["BlogPosts"],
                 args: {
-                    filterByTags: "[String]"
+                    filterByTags: "[String]",
+                    filter: `input filterPosts {title: TitleFilter}`
                 },
                 resolve(source, args){ 
                     // resolve function will be executed when ever you hit the query
