@@ -17,8 +17,11 @@
   "dependencies": {
     "antd": "^4.15.5",
     "axios": "^0.21.1",
+    "dotenv": "^10.0.0",
     "gatsby": "^3.4.1",
+    "gatsby-plugin-image": "^1.6.0",
     "gatsby-plugin-sass": "^4.4.0",
+    "gatsby-source-sanity": "^7.0.4",
     "lodash": "^4.17.21",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",

@@ -1,7 +1,8 @@
 import React from "react";
 import Layout from "../page-components/Layout";
 
-function Posts({ pageContext: { title } }) {
+function Posts({ pageContext: { pageData } }) {
+  const {title} = pageData;
   return (
     <Layout>
       <section>
