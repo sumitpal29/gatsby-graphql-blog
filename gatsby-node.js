@@ -66,13 +66,13 @@ exports.createPages = async ({graphql, createNodeId, actions: {createPage}}) => 
             path: `/posts/${slug}`,
             component: require.resolve("./src/templates/Posts.js"),
             context: {
-                pageData: postObj
+                slug
             }
         })
     });
 };
 
-exports.onCreateNode = ({ node, actions, getNode }) => {
+exports.onCreateNode = ({ node, actions, getNode, createNodeId }) => {
     if (node.internal.type === 'MarkdownRemark') {
         const value = createFilePath({ node, getNode, basePath: "posts" });
         actions.createNodeField({
