@@ -4,6 +4,7 @@ const _filter = require('lodash/filter');
 const _intersection = require('lodash/intersection');
 const _get = require('lodash/get');
 const _forEach = require('lodash/forEach');
+const { createFilePath } = require("gatsby-source-filesystem")
 
 // executed at build time
 // create pages dynamically with templates
@@ -34,6 +35,30 @@ exports.createPages = async ({graphql, createNodeId, actions: {createPage}}) => 
             }
         }
     `);
+
+    const localPages = await graphql(`
+        query {
+            localMarkdowns: allMarkdownRemark {
+            nodes {
+                fields {
+                    slug
+                    }
+                }
+            }
+        }
+    `);
+
+    _forEach(_get(localPages, 'data.localMarkdowns.nodes', []), (node) => {
+        const slug = _get(node, 'fields.slug');
+        createPage({
+            path: `posts${slug}`,
+            component: require.resolve("./src/templates/LocalMarkdownRenderer.js"),
+            context: {
+                slug
+            }
+        });
+    })
+
     // creating post pages
     _forEach(pages.data.posts.nodes, (postObj) => {
         const slug = _get(postObj, 'slug.current', createNodeId(postObj._id));
@@ -44,8 +69,24 @@ exports.createPages = async ({graphql, createNodeId, actions: {createPage}}) => 
                 pageData: postObj
             }
         })
-    })
+    });
 };
+
+exports.onCreateNode = ({ node, actions, getNode }) => {
+    if (node.internal.type === 'MarkdownRemark') {
+        const value = createFilePath({ node, getNode, basePath: "posts" });
+        actions.createNodeField({
+            // Name of the field you are adding
+            name: "slug",
+            // Individual MDX node
+            node,
+            // Generated value based on filepath with "blog" prefix. you
+            // don't need a separating "/" before the value because
+            // createFilePath returns a path with the leading "/".
+            value,
+        })
+    }
+}
 
 // exports.createPages = ({actions: {createPage}}) => {
 //     console.log('Creating pages')
