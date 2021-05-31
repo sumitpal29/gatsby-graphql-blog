@@ -1,12 +1,6 @@
-const axios = require('axios');
-const _isEmpty = require('lodash/isEmpty');
-const _filter = require('lodash/filter');
-const _intersection = require('lodash/intersection');
 const _get = require('lodash/get');
 const _forEach = require('lodash/forEach');
-const { createFilePath } = require('gatsby-source-filesystem');
 
-console.log('aaa');
 // executed at build time
 // create pages dynamically with templates
 exports.createPages = async ({
@@ -45,7 +39,7 @@ exports.createPages = async ({
     query {
       localMarkdowns: allMarkdownRemark {
         nodes {
-          fields {
+          frontmatter {
             slug
           }
         }
@@ -54,9 +48,9 @@ exports.createPages = async ({
   `);
 
   _forEach(_get(localPages, 'data.localMarkdowns.nodes', []), (node) => {
-    const slug = _get(node, 'fields.slug');
+    const slug = _get(node, 'frontmatter.slug');
     createPage({
-      path: `posts${slug}`,
+      path: `posts/${slug}`,
       component: require.resolve('./src/templates/LocalMarkdownRenderer.js'),
       context: {
         slug,

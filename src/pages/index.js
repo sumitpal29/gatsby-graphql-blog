@@ -7,7 +7,7 @@ function Index({ data }) {
   return (
     <Layout>
       <div className="container">
-        <h1>Sumit's blog</h1>
+        <h1>{`Sumit's blog`}</h1>
         <h2>Read contents</h2>
         <Contents data={data} />
       </div>
@@ -37,8 +37,6 @@ export const query = graphql`
           title
           description
           tags
-        }
-        fields {
           slug
         }
       }
