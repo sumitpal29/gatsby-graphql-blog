@@ -1,7 +1,7 @@
-import React from "react";
-import Layout from "../components/Layout";
+import React from 'react';
+import Layout from '../components/Layout';
 import { graphql } from 'gatsby';
-
+import PropTypes from 'prop-types';
 
 function Posts({ data, pageContext: { slug } }) {
   return (
@@ -18,10 +18,15 @@ function Posts({ data, pageContext: { slug } }) {
 export default Posts;
 
 export const query = graphql`
-  query($slug: String) {
-    sanityPost(slug: {current: {eq: $slug}}) {
+  query ($slug: String) {
+    sanityPost(slug: { current: { eq: $slug } }) {
       title
       content
     }
   }
 `;
+
+Posts.propTypes = {
+  data: PropTypes.object.isRequired,
+  pageContext: PropTypes.object.isRequired,
+};

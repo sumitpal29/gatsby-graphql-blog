@@ -6,7 +6,7 @@ import { Link } from 'gatsby';
 // responsible for loading all the contents
 function Contents({ data }) {
   const localContents = _get(data, 'allMarkdownRemark.nodes', []);
-  console.log(localContents);
+
   return (
     <div className="content-renderer">
       {_map(localContents, (localContent, index) => {
