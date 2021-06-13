@@ -12,6 +12,8 @@ import {
   navMenuOutline,
   mobileNavbar,
   mobileNavbarVisible,
+  transparentBgVisible,
+  header,
 } from '../scss/navigation.module.scss';
 
 const navLinksArr = [
@@ -49,7 +51,7 @@ function Header() {
   }, []);
 
   return (
-    <>
+    <div className={header}>
       <nav className={cx(navContainer)}>
         <div className={navTitle}>
           <Avatar
@@ -72,9 +74,15 @@ function Header() {
           [mobileNavbarVisible]: isMobileNavbarVisible,
         })}
       >
+        <span
+          onClick={handleToggleNavbar}
+          className={cx({
+            [transparentBgVisible]: isMobileNavbarVisible,
+          })}
+        />
         {getLinks()}
       </div>
-    </>
+    </div>
   );
 }
 

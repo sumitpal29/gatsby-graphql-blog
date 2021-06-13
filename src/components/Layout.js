@@ -1,13 +1,14 @@
-import React from 'react'
+import React from 'react';
 import Header from './Navigation';
+import { content } from '../scss/content.module.scss';
 
 function Layout({ children }) {
-    return (
-        <div>
-            <Header/>
-            { children }
-        </div>
-    )
+  return (
+    <div>
+      <Header />
+      <div className={content}>{children}</div>
+    </div>
+  );
 }
 
-export default Layout
+export default Layout;
