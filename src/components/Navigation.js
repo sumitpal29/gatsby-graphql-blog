@@ -2,18 +2,17 @@ import React, { useCallback, useState } from 'react';
 import { Link } from 'gatsby';
 import _map from 'lodash/map';
 import cx from 'classNames';
-import { Avatar } from 'antd';
-import { UserOutlined, MenuOutlined } from '@ant-design/icons';
+import { Avatar, Drawer } from 'antd';
+import { UserOutlined, MenuOutlined, SearchOutlined } from '@ant-design/icons';
 
 import {
   navContainer,
-  navLinks,
   navTitle,
   navMenuOutline,
-  mobileNavbar,
-  mobileNavbarVisible,
-  transparentBgVisible,
+  navbarRightMenus,
   header,
+  rightHandNavDrawer,
+  drawerStyles,
 } from '../scss/navigation.module.scss';
 
 const navLinksArr = [
@@ -61,27 +60,30 @@ function Header() {
           />
           <span>Sumit Pal</span>
         </div>
-        <div>
-          {getLinks(navLinks)}
+        <div className={navbarRightMenus}>
+          <SearchOutlined
+            style={{ fontSize: '24px' }}
+            className={cx(navMenuOutline, 'm-r-12')}
+          />
           <MenuOutlined
+            style={{ fontSize: '24px' }}
             onClick={handleToggleNavbar}
             className={cx(navMenuOutline, 'm-r-18')}
           />
         </div>
       </nav>
-      <div
-        className={cx(mobileNavbar, {
-          [mobileNavbarVisible]: isMobileNavbarVisible,
-        })}
+      <Drawer
+        title="Quick Links 🏃🏾‍♂️ "
+        placement="left"
+        width="350"
+        closable={false}
+        onClose={handleToggleNavbar}
+        visible={isMobileNavbarVisible}
+        className={drawerStyles}
+        headerStyle={{ background: '#ddd', borderBottom: '1px solid #ccc' }}
       >
-        <span
-          onClick={handleToggleNavbar}
-          className={cx({
-            [transparentBgVisible]: isMobileNavbarVisible,
-          })}
-        />
-        {getLinks()}
-      </div>
+        {getLinks(rightHandNavDrawer)}
+      </Drawer>
     </div>
   );
 }
