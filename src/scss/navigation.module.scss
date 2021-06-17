@@ -10,7 +10,7 @@
   height: 80px;
   padding-left: 5%;
   padding-right: 5%;
-  background-color: $pure-white;
+  background-color: $color-pure-white;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -71,6 +71,8 @@
 .nav-title {
   font-size: 2rem;
   margin-left: 2rem;
+  display: flex;
+  align-items: center;
 }
 
 .nav-menu-outline {

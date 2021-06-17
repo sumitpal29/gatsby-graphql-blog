@@ -3,7 +3,7 @@ import { Link } from 'gatsby';
 import _map from 'lodash/map';
 import cx from 'classNames';
 import { Avatar, Drawer } from 'antd';
-import { UserOutlined, MenuOutlined, SearchOutlined } from '@ant-design/icons';
+import { MenuOutlined, SearchOutlined } from '@ant-design/icons';
 
 import {
   navContainer,
@@ -54,9 +54,9 @@ function Header() {
       <nav className={cx(navContainer)}>
         <div className={navTitle}>
           <Avatar
-            style={{ backgroundColor: '#87d068' }}
-            icon={<UserOutlined />}
+            src="https://i.imgur.com/3z9UTGGs.jpg"
             className="m-r-12"
+            size="large"
           />
           <span>Sumit Pal</span>
         </div>
@@ -74,7 +74,7 @@ function Header() {
       </nav>
       <Drawer
         title="Quick Links 🏃🏾‍♂️ "
-        placement="left"
+        placement="right"
         width="350"
         closable={false}
         onClose={handleToggleNavbar}

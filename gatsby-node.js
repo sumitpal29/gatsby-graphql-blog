@@ -35,28 +35,28 @@ exports.createPages = async ({
     }
   `);
 
-  const localPages = await graphql(`
-    query {
-      localMarkdowns: allMarkdownRemark {
-        nodes {
-          frontmatter {
-            slug
-          }
-        }
-      }
-    }
-  `);
+  // const localPages = await graphql(`
+  //   query {
+  //     localMarkdowns: allMarkdownRemark {
+  //       nodes {
+  //         frontmatter {
+  //           slug
+  //         }
+  //       }
+  //     }
+  //   }
+  // `);
 
-  _forEach(_get(localPages, 'data.localMarkdowns.nodes', []), (node) => {
-    const slug = _get(node, 'frontmatter.slug');
-    createPage({
-      path: `posts/${slug}`,
-      component: require.resolve('./src/templates/LocalMarkdownRenderer.js'),
-      context: {
-        slug,
-      },
-    });
-  });
+  // _forEach(_get(localPages, 'data.localMarkdowns.nodes', []), (node) => {
+  //   const slug = _get(node, 'frontmatter.slug');
+  //   createPage({
+  //     path: `posts/${slug}`,
+  //     component: require.resolve('./src/templates/LocalMarkdownRenderer.js'),
+  //     context: {
+  //       slug,
+  //     },
+  //   });
+  // });
 
   // creating post pages
   _forEach(pages.data.posts.nodes, (postObj) => {
@@ -70,118 +70,3 @@ exports.createPages = async ({
     });
   });
 };
-
-// exports.onCreateNode = ({ node, actions, getNode, createNodeId }) => {
-//     if (node.internal.type === 'MarkdownRemark') {
-//         const value = createFilePath({ node, getNode, basePath: "posts" });
-//         actions.createNodeField({
-//             // Name of the field you are adding
-//             name: "slug",
-//             // Individual MDX node
-//             node,
-//             // Generated value based on filepath with "blog" prefix. you
-//             // don't need a separating "/" before the value because
-//             // createFilePath returns a path with the leading "/".
-//             value,
-//         })
-//     }
-// }
-
-// exports.createPages = ({actions: {createPage}}) => {
-//     console.log('Creating pages')
-//     createPage({
-//         path: "/posts",
-//         component: require.resolve("./src/templates/Posts.js"),
-//         context: {
-//             title: 'This is post page'
-//         }
-//     })
-// };
-
-// exports.createSchemaCustomization = ({actions}) => {
-//     const {createTypes} = actions;
-//     createTypes(`
-//         type Content {
-//             header: String,
-//             description: String
-//         }
-//         type BlogPosts {
-//             id: ID,
-//             title: String,
-//             tags: [String!]!,
-//             content: Content
-//         }
-//         input TitleFilter {
-//             eq: String,
-//             in: String
-//         }
-//     `);
-// };
-
-// exports.createResolvers = ({createResolvers}) => {
-//     createResolvers({
-//         Query: {
-//             allPosts: {
-//                 type: ["BlogPosts"],
-//                 args: {
-//                     filterByTags: "[String]",
-//                     filter: `input filterPosts {title: TitleFilter}`
-//                 },
-//                 resolve(source, args){
-//                     // resolve function will be executed when ever you hit the query
-//                     // params - source, args, context, info
-//                     const {filterByTags} = args;
-//                     const posts = [{
-//                         id: `cx1`,
-//                         title: 'graphql-gatsby-blog',
-//                         tags: ['tutorial', 'blog', 'Gatsby'],
-//                         content: {
-//                             header: 'How to a create blog with gatsby',
-//                             description: 'not available!'
-//                         }
-//                     },{
-//                         id: `cx2`,
-//                         title: 'Blogs with Sanity CMS',
-//                         tags: ['tutorial', 'blog', 'Sanity'],
-//                         content: {
-//                             header: 'How to a build serverless blog with Sanity',
-//                             description: 'not available!'
-//                         }
-//                     }];
-
-//                     if(filterByTags) {
-//                         return posts.reduce((acc, post) => {
-//                             const tags = _get(post, 'tags');
-//                             !_isEmpty(_intersection(tags, filterByTags)) && acc.push(post);
-//                             return acc;
-//                         }, []);
-//                     }
-
-//                     return posts;
-//                 }
-//             }
-//         }
-//     })
-// };
-
-// exports.sourceNodes = async ({ actions, createNodeId, createContentDigest}) => {
-//     const res = await axios.get("https://jsonplaceholder.typicode.com/posts")
-//     const posts = res.data;
-
-//     posts.forEach(post => {
-//         const node = {
-//             title: post.title,
-//             body: post.body,
-//             id: createNodeId(`Post-${post.id}`),
-//             parent: null,
-//             children: [],
-//             internal: {
-//                 type: "Post",
-//                 contentDigest: createContentDigest(post),
-//                 content: JSON.stringify(post),
-//             }
-//         };
-
-//         actions.createNode(node);
-//     });
-// }
