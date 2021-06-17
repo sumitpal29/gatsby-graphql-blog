@@ -18,17 +18,9 @@ exports.createPages = async ({
           }
           title
           _createdAt(formatString: "DD-MM-YY")
-          content
           categories {
             title
-          }
-          author {
-            name
-            image {
-              asset {
-                url
-              }
-            }
+            colorHexCode
           }
         }
       }

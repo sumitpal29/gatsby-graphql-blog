@@ -53,11 +53,13 @@ function Header() {
     <div className={header}>
       <nav className={cx(navContainer)}>
         <div className={navTitle}>
-          <Avatar
-            src="https://i.imgur.com/3z9UTGGs.jpg"
-            className="m-r-12"
-            size="large"
-          />
+          <Link to="/">
+            <Avatar
+              src="https://i.imgur.com/3z9UTGGs.jpg"
+              className="m-r-12"
+              size="large"
+            />
+          </Link>
           <span>Sumit Pal</span>
         </div>
         <div className={navbarRightMenus}>
