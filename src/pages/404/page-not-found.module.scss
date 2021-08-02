@@ -1,0 +1,18 @@
+@import '../../scss/variables';
+
+.pageNotFound {
+  text-align: center;
+  height:73vh;
+
+  h1 {
+    padding-top: 8rem;
+    padding-bottom: 2.4rem;
+    margin-bottom: 2.4rem;
+    margin-top: 8rem;
+    font-size: 10rem;
+    background: -webkit-linear-gradient(#1F074F, #7E559B);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
