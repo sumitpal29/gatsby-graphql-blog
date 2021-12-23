@@ -13,9 +13,51 @@ html body {
   font-weight: 400;
   margin: 0;
   background-color: $off-white;
-  color: $color-black;
 }
 
 a{
   color: $color-light-blue !important;
+}
+
+body {
+  font: 400 15px/30px "Poppins", sans-serif;
+}
+
+.container {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  width: 1200px;
+}
+
+.content-secondary{
+  font-weight: 300;
+  font-size: 18px;
+  color: #8a8fa3;
+}
+
+.text-light-dark {
+  font-weight: 300;
+  font-size: 18px;
+  color: #8a8fa3;
+}
+
+.text-logo{
+  font-size: 50px;
+  color: $brand-color;
+  font-weight: 900;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+.flex-text-center{
+  justify-content: center;
+}
+
+.flex-space-between{
+  justify-content: space-between;
 }

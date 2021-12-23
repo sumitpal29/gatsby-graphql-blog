@@ -1,4 +1,5 @@
 import React from 'react';
+import cx from 'classnames';
 import {
   GithubOutlined,
   FacebookOutlined,
@@ -11,16 +12,47 @@ import {
   footerContainer,
   footerTop,
   footerIcons,
+  footerTopSecond,
+  footerBottom,
+  footerLogo,
 } from '../scss/footer.module.scss';
 
 function Footer() {
   return (
     <>
-      <div className={footerTop}>
-        <img src="https://i.imgur.com/2FkwOg6.png" alt="sumitpal.in" />
-      </div>
-      <footer className={footerContainer}>
-        <div>
+      <footer className={cx(footerContainer, 'text-light-dark')}>
+        <div
+          className={cx(
+            footerTop,
+            'container',
+            'text-logo',
+            'flex',
+            'flex-text-center'
+          )}
+        >
+          SP.
+        </div>
+        <p
+          className={cx(
+            footerTopSecond,
+            'container',
+            'content-secondary',
+            'flex',
+            'flex-text-center'
+          )}
+        >
+          You made to the bottom, yeah!!! Please follow me if you are on below
+          social media platforms. Cheers
+        </p>
+        <div
+          className={cx(
+            footerLogo,
+            'container',
+            'content-secondary',
+            'flex',
+            'flex-text-center'
+          )}
+        >
           <a href="https://github.com/sumitpal29" target="__blank">
             <GithubOutlined className={footerIcons} />
           </a>
@@ -37,7 +69,17 @@ function Footer() {
             <YoutubeOutlined className={footerIcons} />
           </a>
         </div>
-        <span>© 2021 Sumit Pal</span>
+        <span
+          className={cx(
+            footerBottom,
+            'container',
+            'content-secondary',
+            'flex',
+            'flex-text-center'
+          )}
+        >
+          version 1.0.1 - 2022 - Sumit Pal
+        </span>
       </footer>
     </>
   );
