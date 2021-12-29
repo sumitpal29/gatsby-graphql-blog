@@ -8,7 +8,7 @@ function Contents({ data }) {
   const localContents = _get(data, 'allMarkdownRemark.nodes', []);
 
   return (
-    <div className="content-renderer">
+    <div className="container">
       {_map(localContents, (localContent, index) => {
         const { tags, title, description, slug } = _get(
           localContent,

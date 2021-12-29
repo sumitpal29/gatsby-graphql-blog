@@ -9,7 +9,7 @@ import { Card, Tag } from 'antd';
 // responsible for loading all the contents
 function Contents({ cmsContents }) {
   return (
-    <div className="content-renderer">
+    <div className="container">
       {_map(cmsContents, (content, index) => {
         const { categories, _createdAt, slug, title } = content;
 
