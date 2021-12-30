@@ -41,8 +41,10 @@ function Footer() {
             'flex-text-center'
           )}
         >
-          You made to the bottom, yeah!!! Please follow me if you are on below
-          social media platforms. Cheers
+          You&apos;r here, that means your are liking it. <br></br>
+          Subsribe to my weekly cotents above and connect with me at your
+          favourite place below.
+          <br></br>Cheers!!!
         </p>
         <div
           className={cx(

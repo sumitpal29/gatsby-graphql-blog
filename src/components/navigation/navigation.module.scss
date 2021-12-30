@@ -11,7 +11,7 @@
   width: 100%;
   position: sticky;
   top: 0;
-  transition: all ease 0.25s;
+  transition: box-shadow ease 0.3s, background ease-in 0.05s;
 }
 
 .nav__conatiner {

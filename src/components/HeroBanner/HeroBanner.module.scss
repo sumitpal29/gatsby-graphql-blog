@@ -1,4 +1,34 @@
 .heroBanner{
-  background-color: #fbfbfb;
   padding-top: 85px;
+}
+
+.heroBannerImageContainer{
+  img {
+    height: 600px;
+  }
+}
+
+.banner {
+  width: 100%;
+  background-color: #fff;
+}
+
+.heroBannerText {
+  h1 {
+    color: #32333c;
+    font-size: 70px;
+    margin-bottom: 5px;
+    line-height: 88px;
+    font-weight: 600;
+  }
+
+  h2{
+    color: #666;
+    max-width: 400px;
+    margin-top: 0;
+    font-size: 23px;
+    line-height: 35px;
+    font-weight: 400;
+    margin-bottom: 50px;
+  }
 }

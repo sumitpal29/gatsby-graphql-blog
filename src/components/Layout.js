@@ -1,14 +1,14 @@
 import React from 'react';
 import Header from './Navigation';
 import Footer from './Footer';
-import { content } from '../scss/content.module.scss';
+import Subscribe from './Subscribe';
 
-// eslint-disable-next-line react/prop-types
 function Layout({ children }) {
   return (
     <div>
       <Header />
-      <div className={content}>{children}</div>
+      <div>{children}</div>
+      <Subscribe />
       <Footer />
     </div>
   );
