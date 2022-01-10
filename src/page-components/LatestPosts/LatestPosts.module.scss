@@ -1,0 +1,26 @@
+.link-card {
+  margin: 5px;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.card-list {
+  margin-bottom: 0.5rem;
+  color: #8a8fa3;
+  font-size: 15px;
+  line-height: 28px;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+
+.read-more {
+  text-transform: uppercase;
+  color: #6d6e74;
+  font-size: 12px;
+}

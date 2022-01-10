@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import _get from 'lodash/get';
 import Layout from '../components/Layout';
-import CMSContentListRenderer from '../page-components/CMSContentListRenderer';
+import LatestPosts from '../page-components/LatestPosts';
 import { graphql } from 'gatsby';
 import HeroBanner from '../components/HeroBanner';
 import About from '../components/About';
@@ -12,12 +12,9 @@ function Home({ data }) {
 
   return (
     <Layout>
-      <>
-        <HeroBanner />
-        <About />
-        <h2>Read contents</h2>
-        <CMSContentListRenderer cmsContents={cmsContents} />
-      </>
+      <HeroBanner />
+      <About />
+      <LatestPosts contents={cmsContents} />
     </Layout>
   );
 }
