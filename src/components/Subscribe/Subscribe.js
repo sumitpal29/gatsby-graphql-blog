@@ -1,11 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
 import cx from 'classnames';
 import { Input, Button, Form, notification } from 'antd';
+import { firebaseDB } from '../../firebase';
 import { subscribe, contentCenter, inputBox } from './Subscribe.module.scss';
 
 function Subscribe() {
-  const handleOnFinish = (values) => {
-    console.log('on finish', values);
+  const [isFormLoading, setIsFormLoading] = useState(false);
+  const handleOnFinish = async (values) => {
+    setIsFormLoading(true);
+    const { name, emailId } = values;
+    try {
+      firebaseDB.collection('subscribers').add({
+        name,
+        emailId,
+      });
+      setIsFormLoading(false);
+      notification.info({
+        message: `${name} welcome to the team`,
+        description: `Thanks for subscribing my weekly newsletters.`,
+      });
+    } catch (e) {
+      notification.error({
+        message: 'Something Went wrong',
+        description: e.message,
+      });
+    }
   };
 
   const onFinishFailed = () => {
@@ -20,7 +39,8 @@ function Subscribe() {
     <div className={subscribe}>
       <div className={cx('container', contentCenter)}>
         <h2>Enjoying my posts?</h2>
-        <p>Subscribe to my Sunday Snippets</p>
+        <p>Subscribe to my sunday Snippets for free</p>
+
         <Form
           name="control-ref"
           onFinishFailed={onFinishFailed}
@@ -39,7 +59,7 @@ function Subscribe() {
               <Input className={inputBox} placeholder="Your Name" />
             </Form.Item>
             <Form.Item
-              name="email"
+              name="emailId"
               rules={[
                 {
                   required: true,
@@ -66,6 +86,7 @@ function Subscribe() {
                   border: 'none',
                 }}
                 type="primary"
+                loading={isFormLoading}
               >
                 SUBSCRIBE
               </Button>

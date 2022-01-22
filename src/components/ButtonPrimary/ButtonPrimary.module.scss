@@ -1,0 +1,11 @@
+@import '../../scss/variables';
+
+.primary {
+  background-color: $brand-color-deep;
+  color: $color-pure-white;
+  border: rgba($color: $brand-color-dark, $alpha: 0.5);
+
+  &:hover{
+    background-color: $brand-color-dark;
+  }
+}

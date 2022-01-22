@@ -27,7 +27,7 @@ function Footer() {
             'container',
             'text-logo',
             'flex',
-            'flex-text-center'
+            'flex-center'
           )}
         >
           SP.
@@ -38,7 +38,7 @@ function Footer() {
             'container',
             'content-secondary',
             'flex',
-            'flex-text-center'
+            'flex-center'
           )}
         >
           You&apos;r here, that means your are liking it. <br></br>
@@ -52,7 +52,7 @@ function Footer() {
             'container',
             'content-secondary',
             'flex',
-            'flex-text-center'
+            'flex-center'
           )}
         >
           <a href="https://github.com/sumitpal29" target="__blank">
@@ -77,7 +77,7 @@ function Footer() {
             'container',
             'content-secondary',
             'flex',
-            'flex-text-center'
+            'flex-center'
           )}
         >
           version 1.0.1 - 2022 - Sumit Pal

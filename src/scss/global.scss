@@ -59,7 +59,7 @@ body {
   flex-direction: column;
 }
 
-.flex-text-center {
+.flex-center {
   justify-content: center;
 }
 
@@ -85,6 +85,36 @@ body {
   padding-bottom: 20px;
   margin-top: 0;
   margin-bottom: 35px;
+}
+
+.header-h2{
+  font-size: 32px;
+  font-weight: 600;
+}
+
+.header-h3{
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 28px;
+  color: #484a57;
+}
+
+.header-h4 {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 24px;
+  color: #484a57;
+} 
+
+.header-h5 {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  color: #6b6e81;
+} 
+
+.color-defused {
+  color: #9093a9;
 }
 
 .text-brand-underline {
@@ -113,4 +143,11 @@ body {
   font-weight: 400;
   line-height: 28px;
   color: #8a8fa3;
+}
+
+.para {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: #44485a;
 }

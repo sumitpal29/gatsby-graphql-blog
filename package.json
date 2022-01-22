@@ -19,6 +19,7 @@
     "axios": "^0.21.1",
     "classnames": "^2.3.1",
     "dotenv": "^10.0.0",
+    "firebase": "^9.6.4",
     "gatsby": "^3.4.1",
     "gatsby-plugin-image": "^1.10.1",
     "gatsby-plugin-sass": "^4.4.0",
@@ -31,6 +32,7 @@
     "lodash": "^4.17.21",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-google-login": "^5.2.2",
     "react-markdown": "^6.0.2",
     "sass": "^1.32.12"
   },
