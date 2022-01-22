@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import cx from 'classnames';
 import { Input, Button, Form, notification } from 'antd';
+import { doc, setDoc } from 'firebase/firestore';
 import { firebaseDB } from '../../firebase';
 import { subscribe, contentCenter, inputBox } from './Subscribe.module.scss';
 
@@ -10,10 +11,15 @@ function Subscribe() {
     setIsFormLoading(true);
     const { name, emailId } = values;
     try {
-      firebaseDB.collection('subscribers').add({
+      await setDoc(doc(firebaseDB, 'subscribers', emailId), {
         name,
         emailId,
       });
+
+      // firebaseDB.collection('subscribers').add({
+      //   name,
+      //   emailId,
+      // });
       setIsFormLoading(false);
       notification.info({
         message: `${name} welcome to the team`,
@@ -24,6 +30,7 @@ function Subscribe() {
         message: 'Something Went wrong',
         description: e.message,
       });
+      setIsFormLoading(false);
     }
   };
 
