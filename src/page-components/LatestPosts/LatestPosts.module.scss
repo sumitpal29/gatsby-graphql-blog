@@ -1,5 +1,14 @@
+@import '../../scss/variables';
+
 .link-card {
   margin: 5px;
+  width: 400px;
+  :global {
+    .ant-card-bordered {
+      border-color: lighten($color: $brand-color-dark, $amount: 10);
+      border-radius: 4px;
+    }
+  }
 }
 
 .card-content {

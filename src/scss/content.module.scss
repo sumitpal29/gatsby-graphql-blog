@@ -26,6 +26,7 @@
     margin: 1.25em 0;
     letter-spacing: 0.2px;
     word-spacing: 0.4px;
+    font-size: 1.8rem;
 
     img {
       border-radius: 6px;
@@ -37,9 +38,10 @@
 }
 
 .content-h1 {
-  margin: 1rem 0;
+  margin: 3.6rem 0;
   padding-bottom: 2.4rem;
   border-bottom: 1px solid rgb(229, 231, 235);
+  line-height: 4.2rem;
 }
 
 @media (min-width: 1440px) {
@@ -77,7 +79,7 @@
     margin-bottom: 35px;
     text-align: center;
 
-    &::before{
+    &::before {
       left: 50%;
       margin-left: -50px;
     }

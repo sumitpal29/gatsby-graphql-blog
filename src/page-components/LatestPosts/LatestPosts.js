@@ -5,7 +5,7 @@ import _get from 'lodash/get';
 import _map from 'lodash/map';
 import _toUpper from 'lodash/toUpper';
 import { Link } from 'gatsby';
-import { Card, Tag } from 'antd';
+import { Card, Tag, Tooltip } from 'antd';
 import { sectionBasic, latestPosts } from '../../scss/content.module.scss';
 import { EMPTY_ARRAY, EMPTY_STRING } from '../../constants/base';
 import {
@@ -30,29 +30,35 @@ function LatestPosts({ contents }) {
               className={linkCard}
               to={`posts/${_get(slug, 'current', EMPTY_STRING)}`}
             >
-              <Card
-                className="m-t-12 m-b-12 equal-card"
-                hoverable
-                key={index}
+              <Tooltip
                 title={title}
+                color="#f5c130"
+                key={`posts/${_get(slug, 'current', EMPTY_STRING)}`}
               >
-                <ul className={cardContent}>
-                  <li className={cardList}>
-                    {_map(categories, (tag) => {
-                      const title = _get(tag, 'title');
-                      const colorHexCode = _get(tag, 'colorHexCode', '#ccc');
+                <Card
+                  className="m-t-12 m-b-12 equal-card"
+                  hoverable
+                  key={index}
+                  title={title}
+                >
+                  <ul className={cardContent}>
+                    <li className={cardList}>
+                      {_map(categories, (tag) => {
+                        const title = _get(tag, 'title');
+                        const colorHexCode = _get(tag, 'colorHexCode', '#ccc');
 
-                      return (
-                        <Tag color={colorHexCode} key={title}>
-                          {_toUpper(title)}
-                        </Tag>
-                      );
-                    })}
-                  </li>
-                  <li className={cardList}>published: {_createdAt}</li>
-                  <li className={readMore}>read more</li>
-                </ul>
-              </Card>
+                        return (
+                          <Tag color={colorHexCode} key={title}>
+                            {_toUpper(title)}
+                          </Tag>
+                        );
+                      })}
+                    </li>
+                    <li className={cardList}>published: {_createdAt}</li>
+                    <li className={readMore}>read more</li>
+                  </ul>
+                </Card>
+              </Tooltip>
             </Link>
           );
         })}
