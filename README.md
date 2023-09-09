@@ -1,10 +1,37 @@
-<p align="center">
-  <a href="https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  Sumit's blog
-</h1>
+# Sumit's blog
 
-gatsby - graphql - sanity
+## gatsby - graphql - sanity
+
+Configure Firebase Deployment
+
+- if firebase tool isn't installed, install it (globally preferred)
+
+```
+  firebase --version
+  sudo npm install -g firebase-tools
+```
+
+- On app, init firebase and configure if not already
+
+```
+  firebase init
+```
+
+- All set time to deploy project, run the command and watch the magic
+
+```
+  firebase deploy
+```
+
+## Run react project
+
+```
+  // develop and run on local machine
+  yarn start
+
+  // build
+  yarn build
+
+  // serve
+  yarn serve
+```
